@@ -56,6 +56,9 @@ public class Main {
         for (Thread thread : threads) {
             thread.start();
         }
+
+
+
     }
 
     public static class OwnRunnable implements Runnable {
@@ -93,7 +96,7 @@ public class Main {
 
                                         if (hash.equals(person.hash)) {
                                             long endTime = System.currentTimeMillis();
-                                            // System.out.println("Passwort gefunden für " + person.firstName + " " + person.lastName + ": " + password);
+                                            System.out.println("Passwort gefunden für " + person.firstName + " " + person.lastName + ": " + password);
 
                                             // System.out.println("Zeit: " + (endTime - startTime) + " ms");
 
