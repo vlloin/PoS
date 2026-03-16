@@ -53,11 +53,27 @@ public class Main {
             startIndex = endIndex;
         }
 
+        long startTime = System.currentTimeMillis();
+
         for (Thread thread : threads) {
             thread.start();
         }
 
+        for (Thread thread : threads) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
+        long endTime = System.currentTimeMillis();
+
+        System.out.println("Time taken: " + (startTime-endTime));
+
+        passwords.forEach((key, value) -> {
+            System.out.println(key + ": " + value);
+        });
 
     }
 
@@ -96,7 +112,7 @@ public class Main {
 
                                         if (hash.equals(person.hash)) {
                                             long endTime = System.currentTimeMillis();
-                                            System.out.println("Passwort gefunden für " + person.firstName + " " + person.lastName + ": " + password);
+                                            // System.out.println("Passwort gefunden für " + person.firstName + " " + person.lastName + ": " + password);
 
                                             // System.out.println("Zeit: " + (endTime - startTime) + " ms");
 
