@@ -18,6 +18,7 @@ public class LandingPlattform extends Object{
     @Override
     public void update(){
         // Not yet in use
+        // Note: wont ever get in use -> checkOnTop is the new update()
     }
 
     @Override

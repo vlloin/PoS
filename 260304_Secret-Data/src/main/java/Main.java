@@ -12,7 +12,6 @@ public class Main {
     public static void main(String[] args) {
         ArrayList<Person> people = new ArrayList<>();
         Path path = Path.of(System.getProperty("user.dir"), "src", "main", "resources", "secret-data.csv");
-        File file = path.toFile();
         try{
             for (String line : Files.readAllLines(path)) {
                 String[] parts = line.split(",");

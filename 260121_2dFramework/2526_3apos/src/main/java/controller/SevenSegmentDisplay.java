@@ -18,10 +18,10 @@ public class SevenSegmentDisplay {
     }
 
     public void setTime(int minutes, int seconds) {
-        
+        // Note: please finish...
     }
 
     public void draw(Graphics g){
-
+        // Note: please finish...
     }
 }
