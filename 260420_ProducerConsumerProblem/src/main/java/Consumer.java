@@ -1,0 +1,20 @@
+public class Consumer implements Runnable {
+    private Stack stack;
+
+    public Consumer(Stack stack) {
+        this.stack = stack;
+    }
+
+    @Override
+    public void run() {
+        for(;;){
+            int value = stack.pop();
+            System.out.println("Consumed: " + value);
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                System.out.println(this.getClass().getSimpleName() + ": Consumer interrupted");
+            }
+        }
+    }
+}

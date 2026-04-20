@@ -70,23 +70,6 @@ States:
   - `runnable` means that the OS idles the Thread
 - `terminate` -> when the Thread is terminated (dead). There is no way to bring the Thread into state `new`
 ![img.png](img.png)
-```mermaid
-stateDiagram-v2
-    [*] --> new : new Thread()
-    new --> runnable_running : start()
-
-    state runnable_running {
-        running --> runnable : OS idles thread
-        runnable --> running : OS schedules thread
-    }
-
-    runnable_running --> terminated : finishes
-    terminated --> [*]
-
-    note right of terminated
-        Cannot return to new
-    end note
-```
 
 
 ### States when `running/runnable`
