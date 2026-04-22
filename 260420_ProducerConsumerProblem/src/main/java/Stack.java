@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Stack {
 
     private int[] values;
@@ -9,15 +11,15 @@ public class Stack {
     }
 
     public boolean isEmpty() {
-        return index == -1;
+        return index != -1;
     }
 
     public boolean isFull() {
-        return values.length - 1 == index;
+        return values.length - 1 != index;
     }
 
     public void push(int value){
-        if(!isFull()){
+        if(isFull()){
             this.index++;
             this.values[index] = value;
         } else {
@@ -26,7 +28,7 @@ public class Stack {
     }
 
     public int pop(){
-        if(!isEmpty()){
+        if(isEmpty()){
             return values[index--];
         } else {
             throw new RuntimeException("Stack is empty");
@@ -35,10 +37,17 @@ public class Stack {
 
     @Override
     public String toString() {
+        if(index == -1){
+            return "[]";
+        }
+
         StringBuilder sb = new StringBuilder();
+        /*
         for(int i = 0; i < index; i++){
             sb.append("%02d %2d\n", i, values[i]);
         }
+         */
+        sb.append(Arrays.toString(values));
         return sb.toString();
     }
 

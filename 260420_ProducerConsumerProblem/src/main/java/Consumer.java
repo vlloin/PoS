@@ -8,10 +8,15 @@ public class Consumer implements Runnable {
     @Override
     public void run() {
         for(;;){
-            int value = stack.pop();
-            System.out.println("Consumed: " + value);
+            synchronized (stack) {
+                if(stack.isEmpty()){
+                    int value = stack.pop();
+                    System.out.println("Consumed: " + value);
+                }
+            }
             try {
-                Thread.sleep(2000);
+                System.out.println(Thread.currentThread().getName() + " stack " + stack.toString());
+                Thread.sleep(10000);
             } catch (InterruptedException e) {
                 System.out.println(this.getClass().getSimpleName() + ": Consumer interrupted");
             }
